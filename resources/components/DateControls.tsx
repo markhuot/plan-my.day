@@ -29,7 +29,7 @@ export function DateControls({ date }) {
     return <div className="flex w-full justify-between items-start gap-4 px-10 pt-12">
         <div>
             <span className="text-slate-300 text-sm">{dayMonth}</span>
-            <strong className="text-slate-950 font-bold mr-1 group-hover:underline block text-5xl -mb-1"
+            <strong className="text-slate-950 font-bold mr-1 group-hover:underline block text-3xl md:text-5xl -mb-1"
                     style={{fontFamily: '"Big Caslon", "Book Antiqua", "Palatino Linotype", Georgia, serif'}}>{weekday}</strong>
         </div>
         <div className="h-[2rem] flex items-center text-lg" tabIndex="0" onKeyDown={handleKeyDown}>
