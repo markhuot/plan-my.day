@@ -130,7 +130,7 @@ export default function Dashboard({ date, todos, triage, notes }) {
                                         : null}
                                 </div>
                                 {todos.length === 0
-                                    ? <img src="/images/leaf.png" className="absolute bottom-[-20px] right-0 w-[275px] opacity-10"/>
+                                    ? <img src="/images/leaf.png" className="absolute bottom-[-20px] right-0 w-[175px] md:w-[275px] opacity-10"/>
                                     : null}
                             </div>
                             <div className="w-full flex-none py-4 md:py-6 px-10">

@@ -16,7 +16,8 @@ const authorize = php`
     $client = app(\Google\Client::class);
     
     return \Inertia\Inertia::location($client->createAuthUrl([], [
-        'access_type' => 'offline'
+        'access_type' => 'offline',
+        'approval_prompt' => 'force',
     ]));
 `.execute
 
