@@ -33,11 +33,11 @@ export function DateControls({ date }) {
                     style={{fontFamily: '"Big Caslon", "Book Antiqua", "Palatino Linotype", Georgia, serif'}}>{weekday}</strong>
         </div>
         <div className="h-[2rem] flex items-center text-lg" tabIndex="0" onKeyDown={handleKeyDown}>
-            <Link className="text-slate-400 hover:text-black hover:bg-slate-100 rounded inline-block px-2" tabIndex="-1"
+            <Link className="text-slate-400 hover:text-black hover:bg-slate-100 hover:text-blue-400 rounded inline-block px-2" tabIndex="-1"
                   href={`?date=${yesterday.toISOString().replace(/\T.+$/, '')}`}>&larr;</Link>
-            <Link className="text-slate-400 hover:text-black hover:bg-slate-100 rounded inline-block px-2" tabIndex="-1"
+            <Link className="text-slate-400 hover:text-black hover:bg-slate-100 hover:text-blue-400 rounded inline-block px-2" tabIndex="-1"
                   href="/">&#x274D;</Link>
-            <Link className="text-slate-400 hover:text-black hover:bg-slate-100 rounded inline-block px-2" tabIndex="-1"
+            <Link className="text-slate-400 hover:text-black hover:bg-slate-100 hover:text-blue-400 rounded inline-block px-2" tabIndex="-1"
                   href={`?date=${tomorrow.toISOString().replace(/\T.+$/, '')}`}>&rarr;</Link>
         </div>
     </div>

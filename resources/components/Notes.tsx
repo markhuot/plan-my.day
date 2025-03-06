@@ -19,7 +19,7 @@ export function Notes({ notes, date }) {
                       onInput={(event) => updateNotes(date, event.target.value)}
                       defaultValue={notes?.contents || ''}></textarea>
             <p className="hidden peer-placeholder-shown:block pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-slate-300"
-            >If you fail to plan, you plan to fail</p>
+            >If you fail to plan, you plan to fail.</p>
         </>
     )
 }

@@ -4,6 +4,7 @@ import { CSS } from '@dnd-kit/utilities';
 import {Link, router, usePage, usePoll} from '@inertiajs/react';
 import React, {PropsWithChildren, useEffect, useRef, useState} from 'react';
 import {AddTodo} from "../components/AddTodo";
+import {AddTodoWelcome} from "../components/AddTodo";
 import {Todo} from "../components/Todo";
 import {Notes} from "../components/Notes";
 import {Navbar} from "../components/Navbar";
@@ -104,7 +105,7 @@ export default function Dashboard({ date, todos, triage, notes }) {
                 <div
                     className="mx-auto max-w-[1100px] bg-white border border-b-[3px] border-blue-100 border-b-blue-200 rounded-lg overflow-hidden shadow-[6px_4px_0_var(--tw-shadow-color)] shadow-blue-100 space-y-8 flex items-stretch">
                     <div className="flex flex-col md:flex-row min-h-[33vh] md:min-h-[75vh] w-full">
-                        <div className="md:w-1/2 flex flex-col">
+                        <div className="md:w-1/2 flex flex-col relative">
                             <h1 className="w-full flex-none">
                                 <DateControls date={date}/>
                             </h1>
@@ -116,11 +117,21 @@ export default function Dashboard({ date, todos, triage, notes }) {
                                                          strategy={verticalListSortingStrategy}>
                                             <ul className="">
                                                 {todos.map(todo => <Row key={todo.id} todo={todo} moveTodo={moveTodo}/>)}
+                                                {todos.length === 0
+                                                    ? <li className="px-10 py-8 space-y-2">
+                                                        <AddTodoWelcome date={date}/>
+                                                    </li>
+                                                    : null}
                                             </ul>
                                         </SortableContext>
                                     </DndContext>
-                                    <AddTodo date={date}/>
+                                    {todos.length > 0
+                                        ? <AddTodo date={date}/>
+                                        : null}
                                 </div>
+                                {todos.length === 0
+                                    ? <img src="/images/leaf.png" className="absolute bottom-[-20px] right-0 w-[275px] opacity-10"/>
+                                    : null}
                             </div>
                             <div className="w-full flex-none py-4 md:py-6 px-10">
                                 <button
