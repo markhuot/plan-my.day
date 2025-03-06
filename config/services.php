@@ -35,4 +35,8 @@ return [
         ],
     ],
 
+    'google' => [
+        'credentials' => base_path(env('GOOGLE_CREDENTIALS_PATH')),
+    ]
+
 ];

@@ -7,6 +7,7 @@
     },
     "devDependencies": {
         "@types/react": "^19.0.8",
+        "@vitejs/plugin-react": "^4.3.4",
         "acorn-walk": "^8.3.4",
         "alpinejs": "^3.14.8",
         "astring": "^1.9.0",
@@ -23,11 +24,19 @@
         "@dnd-kit/sortable": "^10.0.0",
         "@dnd-kit/utilities": "^3.2.2",
         "@inertiajs/react": "^2.0.3",
-        "@markhuot/synapse": "^1.0.5",
+        "@markhuot/synapse": "^1.0.6",
         "@rollup/pluginutils": "^5.1.4",
+        "class-variance-authority": "^0.7.1",
+        "clsx": "^2.1.1",
         "date-fns": "^4.1.0",
+        "lucide-react": "^0.477.0",
+        "next-themes": "^0.4.4",
         "react": "^19.0.0",
         "react-dom": "^19.0.0",
-        "sortablejs": "^1.15.6"
+        "sonner": "^2.0.1",
+        "sortablejs": "^1.15.6",
+        "tailwind-merge": "^3.0.2",
+        "tailwindcss-animate": "^1.0.7",
+        "throttleit": "^2.1.0"
     }
 }

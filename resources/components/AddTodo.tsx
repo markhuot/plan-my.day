@@ -44,7 +44,7 @@ export function AddTodo({ date }) {
     }
 
     return (
-        <form action={handleAction} className="px-10 py-2" onClick={handleFormClick}>
+        <form action={handleAction} className="px-10 py-2 w-full" onClick={handleFormClick}>
             <input type="hidden" name="date" value={date}/>
             <input type="hidden" name="title" value={title} readOnly/>
             <div className="grid grid-cols-[20px,1fr] gap-2">

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Casts\Day;
+use App\Models\Scopes\ForDay;
 use Carbon\CarbonImmutable;
 use Carbon\CarbonInterval;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -14,13 +15,14 @@ use Illuminate\Database\Eloquent\Builder;
 class Todo extends Model
 {
     use HasFactory;
-    use Rxable;
+    use ForDay;
 
     protected $fillable = [
         'title',
         'day',
         'completed',
         'sort_order',
+        'remote_id',
     ];
 
     protected $casts = [
@@ -36,6 +38,21 @@ class Todo extends Model
                 $model->stopTimer();
             }
         });
+
+        static::deleted(function ($model) {
+            if ($model->remote_id) {
+                $dead = new DeadLetterTodo();
+                $dead->user_id = $model->user_id;
+                $dead->remote_id = $model->remote_id;
+                $dead->save();
+            }
+        });
+    }
+
+    public function scopeLate(Builder $builder)
+    {
+        return $builder->where('completed', '=', false)
+            ->where('ignored_when_late', '=', false);
     }
 
     public function getTotalTime(): ?CarbonInterval
@@ -65,14 +82,5 @@ class Todo extends Model
     {
         $this->timer_elapsed = $this->timer_elapsed + ($this->timer_started_at?->diffInSeconds(now()) ?? 0);
         $this->timer_started_at = null;
-    }
-
-    public function scopeForDay(Builder $builder, string|Carbon|CarbonImmutable $day)
-    {
-        if ($day instanceof Carbon || $day instanceof CarbonImmutable) {
-            $day = $day->format('Y-m-d');
-        }
-
-        return $builder->where('day', $day);
     }
 }

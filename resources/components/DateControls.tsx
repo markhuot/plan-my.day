@@ -21,16 +21,24 @@ export function DateControls({ date }) {
         if (event.code === 'ArrowLeft') {
             router.get(`?date=${yesterday.toISOString().replace(/\T.+$/, '')}`);
         }
+        if (event.code === 'Enter') {
+            router.get('/');
+        }
     };
 
-    return <div className="flex items-start gap-4 px-10 pt-12">
-        <Link className="group hover:text-slate-950 leading-none" href="/">
-            <strong className="text-slate-950 font-bold mr-1 group-hover:underline block text-2xl -mb-1">{weekday}</strong>
-            <span className="text-slate-400 text-sm">{dayMonth}</span>
-        </Link>
-        <div className="h-[2rem] flex items-center" tabIndex="0" onKeyDown={handleKeyDown}>
-            <Link className="text-slate-400 hover:text-black hover:bg-slate-100 rounded inline-block px-2" tabIndex="-1" href={`?date=${yesterday.toISOString().replace(/\T.+$/, '')}`}>&larr;</Link>
-            <Link className="text-slate-400 hover:text-black hover:bg-slate-100 rounded inline-block px-2" tabIndex="-1" href={`?date=${tomorrow.toISOString().replace(/\T.+$/, '')}`}>&rarr;</Link>
+    return <div className="flex w-full justify-between items-start gap-4 px-10 pt-12">
+        <div>
+            <span className="text-slate-300 text-sm">{dayMonth}</span>
+            <strong className="text-slate-950 font-bold mr-1 group-hover:underline block text-5xl -mb-1"
+                    style={{fontFamily: '"Big Caslon", "Book Antiqua", "Palatino Linotype", Georgia, serif'}}>{weekday}</strong>
+        </div>
+        <div className="h-[2rem] flex items-center text-lg" tabIndex="0" onKeyDown={handleKeyDown}>
+            <Link className="text-slate-400 hover:text-black hover:bg-slate-100 rounded inline-block px-2" tabIndex="-1"
+                  href={`?date=${yesterday.toISOString().replace(/\T.+$/, '')}`}>&larr;</Link>
+            <Link className="text-slate-400 hover:text-black hover:bg-slate-100 rounded inline-block px-2" tabIndex="-1"
+                  href="/">&#x274D;</Link>
+            <Link className="text-slate-400 hover:text-black hover:bg-slate-100 rounded inline-block px-2" tabIndex="-1"
+                  href={`?date=${tomorrow.toISOString().replace(/\T.+$/, '')}`}>&rarr;</Link>
         </div>
     </div>
 }

@@ -25,6 +25,10 @@ class Day implements CastsAttributes
      */
     public function set(Model $model, string $key, mixed $value, array $attributes): mixed
     {
+        if (is_string($value)) {
+            return $value;
+        }
+
         return $value->format('Y-m-d');
     }
 }
