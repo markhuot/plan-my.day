@@ -101,9 +101,8 @@ export default function Dashboard({ date, todos, triage, notes }) {
     return <>
         <div>
             <Navbar/>
-            <div className="pt-[clamp(0px,calc((100vw-1100px)/2),100px)]">
-                <div
-                    className="mx-auto max-w-[1100px] bg-white border border-b-[3px] border-blue-100 border-b-blue-200 rounded-lg overflow-hidden shadow-[6px_4px_0_var(--tw-shadow-color)] shadow-blue-100 space-y-8 flex items-stretch">
+            <div style={{'--max-width': '1300px'}} className="pt-[clamp(0px,calc((100vw-var(--max-width))/2),100px)]">
+                <div className="mx-auto max-w-[var(--max-width)] bg-white border border-b-[3px] border-blue-100 border-b-blue-200 rounded-lg overflow-hidden shadow-[6px_4px_0_var(--tw-shadow-color)] shadow-blue-100 space-y-8 flex items-stretch">
                     <div className="flex flex-col md:flex-row min-h-[33vh] md:min-h-[75vh] w-full">
                         <div className="md:w-1/2 flex flex-col relative">
                             <h1 className="w-full flex-none">

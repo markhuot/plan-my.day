@@ -17,6 +17,7 @@
             radial-gradient(at 67% 46%, hsla(330,66%,71%, var(--opacity)) 0px, transparent 50%),
             radial-gradient(at 6% 40%, hsla(69,95%,62%, var(--opacity)) 0px, transparent 50%);
     background-size: 100vw 100vh;
+    background-attachment: fixed;
 }
 /*---break--- */
 @layer base {

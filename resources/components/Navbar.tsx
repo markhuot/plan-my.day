@@ -1,12 +1,15 @@
-import {Link} from "@inertiajs/react";
+import {Head, Link} from "@inertiajs/react";
 import React from "react";
 
 export function Navbar() {
-    return (
+    return <>
+        <Head>
+            <meta name="theme-color" content="#e2e8f0"/>
+        </Head>
         <div>
-            <div className="">
+            <div className="bg-slate-200 shadow-lg shadow-white">
                 <div
-                    className="max-w-[1400px] mx-auto flex justify-between items-center py-0 md:py-4 px-10 shadow-lg shadow-white text-slate-950/30">
+                    className="max-w-[1400px] mx-auto flex justify-between items-center py-0 md:py-4 px-10  text-slate-950/10 md:text-slate-950/20">
                     <div className="">Plan My Day</div>
                     <div className="inline-flex gap-2 md:gap-6 text-xl">
                         <Link href="/settings"
@@ -45,5 +48,5 @@ export function Navbar() {
             </div>
             <hr className="border-t border-t-slate-200 border-b border-b-white max-[1100px]:hidden"/>
         </div>
-    );
+    </>;
 }
