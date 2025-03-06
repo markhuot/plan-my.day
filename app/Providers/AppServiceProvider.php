@@ -21,6 +21,7 @@ class AppServiceProvider extends ServiceProvider
             $client->setAuthConfig(config('services.google.credentials'));
             $client->addScope(Calendar::CALENDAR_READONLY);
             $client->setAccessType('offline');
+            $client->setPrompt('consent');
             $client->setRedirectUri(url('/oauth/connect/google'));
 
             return $client;

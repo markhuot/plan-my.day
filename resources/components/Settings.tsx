@@ -17,7 +17,6 @@ const authorize = php`
     
     return \Inertia\Inertia::location($client->createAuthUrl([], [
         'access_type' => 'offline',
-        'approval_prompt' => 'force',
     ]));
 `.execute
 
