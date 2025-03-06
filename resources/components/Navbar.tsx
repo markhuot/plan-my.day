@@ -5,6 +5,7 @@ export function Navbar() {
     return <>
         <Head>
             <meta name="theme-color" content="#e2e8f0"/>
+            <meta name="msapplication-TileColor" content="#e2e8f0"/>
         </Head>
         <div>
             <div className="bg-slate-200 shadow-lg shadow-white">
